@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>obeta</title>
+
+    <link rel="stylesheet" href="static\css\button_tem.css">
+</head>
+<script>
+  if('{{ error }}' == "사진 파일 에러"){
+    alert('{{error}}');
+  }
+</script>
+<body>
+    <section class="content">
+        <h2>Recommend System</h2>
+        <div class="box bg-1">
+          <img id='image1' src="" width="300" height="300">
+          {{Testname}}
+        </div>
+        
+        <script>
+          var test = document.getElementById('image1');
+          var first = "static/image/";
+          first += '{{ Testname }}';
+          if('{{ Testname }}'){
+            alert(first);
+            test.setAttribute("src", first);
+          }
+          else{
+            test.setAttribute("src", "static/undefined/undefined.png");            
+          }
+          
+        </script>
+        <div class="box bg-2" style="display: grid;">
+          <button class="button button--winona button--border-thick button--round-l button--text-upper button--size-s button--text-thick" style="width: 450px;" data-text="Upload File" onclick="c(window.location.href);"><span>Upload File</span></button>
+          <button class="button button--winona button--border-thick button--round-l button--text-upper button--size-s button--text-thick" data-text="Recommend"><span>Recommend</span></button>
+          <button class="button button--winona button--border-thick button--round-l button--text-upper button--size-s button--text-thick" data-text="Select image" onclick="d(window.location.href);"><span>Select image</span></button>
+        </div>
+      </section>
+      <div class="box bg-3" style="display: flex; padding: 0em 0em 0em 0em;">
+       <button class="button button--winona button--border-thin button--text-thick button--inverted" data-text="Open Project"><span>Open Project</span></button>
+       <button class="button button--winona button--border-thin button--text-thick button--inverted" data-text="Create New"><span>Create New</span></button>
+       <button class="button button--winona button--border-thin button--text-thick button--inverted" data-text="Publish"><span>Publish</span></button>
+       <button class="button button--winona button--border-thin button--text-thick button--inverted" data-text="Open Project"><span>Open Project</span></button>
+       <button class="button button--winona button--border-thin button--text-thick button--inverted" data-text="Create New"><span>Create New</span></button>
+       <button class="button button--winona button--border-thin button--text-thick button--inverted" data-text="Publish"><span>Publish</span></button>
+     </div>
+
+</body>
+</html>
+<script>
+    function c(a){
+        if(window.location.href.indexOf("index") > -1){
+          window.location.href = 'http://218.48.207.77:9999/upload';
+        }
+        else{
+          window.location.href = a +'upload';
+        }
+        
+    }
+    function d(a){
+      if(window.location.href.indexOf("index") > -1){
+        window.location.href = 'http://218.48.207.77:9999/select_image';
+      }
+      else{
+        window.location.href = a +'select_image';
+      }
+      
+  }
+</script>

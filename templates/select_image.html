@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {{ file_list }}
+    {{ count }}
+    <h3>imagename (<a href = "{{ url_for('remove') }}">Remove</a>)</h3>
+    <table>
+        <thead>
+           <tr>
+              <th>imgname</th>
+           </tr>
+        </thead>
+        <tbody>
+           {% for dbimg in dbimg %}
+              <tr>
+                 <td>{{ dbimg.name }}</td>
+              </tr>
+           {% endfor %}
+        </tbody>
+     </table>
+    <div id="x"></div>
+    <script>
+        var count = '{{ count }}';
+        var name = '{{ file_list }}';
+        
+        var result = name.replace(/&#39;/gi, '');
+        result = result.replace(/\[/gi, '');
+        result = result.replace(/\]/gi, '');
+        result = result.replace(/ /gi, '');
+
+        alert(result);
+
+        var f_list = result.split(',');
+
+        for(i=0; i<count; i++){
+            var img = document.createElement("img");
+           
+            //var name='\'\{\{ file_list\['+ String(i) + '\] \}\}\'';
+            //alert(();
+            //var temp = name;
+
+            var first = "static/image/";
+            first += f_list[i];
+            
+            //alert(f_list[i]);
+            img.src = first;
+            var src = document.getElementById("x");
+            img.width = 300;
+            img.height = 300;
+            img.style = "cursor:pointer";
+            img.addEventListener("click", function() {
+               window.open(img.src)
+            });
+            src.appendChild(img);
+        }
+      </script>
+
+</body>
+</html>
