@@ -14,6 +14,9 @@
 <body>
     <section class="content">
         <h2>Recommend System</h2>
+        {%if userid%}
+        {{userid}}<a>안녕하세요</a>
+        {%endif%}
         <div class="box bg-1">
           <img id='image1' src="" width="300" height="300">
           {{Testname}}
@@ -34,8 +37,10 @@
         </script>
         <div class="box bg-2" style="display: grid;">
           <button class="button button--winona button--border-thick button--round-l button--text-upper button--size-s button--text-thick" style="width: 450px;" data-text="Upload File" onclick="c(window.location.href);"><span>Upload File</span></button>
-          <button class="button button--winona button--border-thick button--round-l button--text-upper button--size-s button--text-thick" data-text="Recommend"><span>Recommend</span></button>
+          <button class="button button--winona button--border-thick button--round-l button--text-upper button--size-s button--text-thick" data-text="Recommend" onclick="r(window.location.href);"><span>Recommend</span></button>
           <button class="button button--winona button--border-thick button--round-l button--text-upper button--size-s button--text-thick" data-text="Select image" onclick="d(window.location.href);"><span>Select image</span></button>
+          <button class="button button--winona button--border-thick button--round-l button--text-upper button--size-s button--text-thick" data-text="Select image" onclick="f(window.location.href);"><span>Register</span></button>
+          <button class="button button--winona button--border-thick button--round-l button--text-upper button--size-s button--text-thick" data-text="Select image" onclick="g(window.location.href);"><span>Login</span></button>
         </div>
       </section>
       <div class="box bg-3" style="display: flex; padding: 0em 0em 0em 0em;">
@@ -52,7 +57,7 @@
 <script>
     function c(a){
         if(window.location.href.indexOf("index") > -1){
-          window.location.href = 'http://218.48.207.77:9999/upload';
+          window.location.href = 'http://220.89.81.58:8080/upload';
         }
         else{
           window.location.href = a +'upload';
@@ -61,11 +66,39 @@
     }
     function d(a){
       if(window.location.href.indexOf("index") > -1){
-        window.location.href = 'http://218.48.207.77:9999/select_image';
+        window.location.href = 'http://220.89.81.58:8080/select_image';
       }
       else{
         window.location.href = a +'select_image';
       }
       
+  }
+
+  function f(a){
+      if(window.location.href.indexOf("index") > -1){
+        window.location.href = 'http://220.89.81.58:8080/register';
+      }
+      else{
+        window.location.href = a +'register';
+      }
+      
+  }
+  function g(a){
+      if(window.location.href.indexOf("index") > -1){
+        window.location.href = 'http://220.89.81.58:8080/login';
+      }
+      else{
+        window.location.href = a +'login';
+      }
+      
+  }
+  function r(a){
+    if(window.location.href.indexOf("index") > -1){
+      window.location.href = 'http://220.89.81.58:8080/recommend';
+    }
+    else{
+      window.location.href = a +'recommend';
+    }
+    
   }
 </script>
